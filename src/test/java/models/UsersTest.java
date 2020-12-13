@@ -93,6 +93,20 @@ public class UsersTest {
         assertEquals(1, testUsers.getDepartmentId());
     }
 //13th
+@Test
+public void setDepartmentId() {
+    Users  testUsers = setupUsers();
+    testUsers.setDepartmentId(10);
+    assertNotEquals(1, testUsers.getDepartmentId());
+}
+//14th
+@Test
+public void setId() {
+    Users  testUsers = setupUsers();
+    testUsers.setId(5);
+    assertEquals(5, testUsers .getId());
+}
+//pairs with first test
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
