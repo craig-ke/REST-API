@@ -66,6 +66,13 @@ public class UsersTest {
         assertNotEquals("IT Technician",testUsers.getPosition());
     }
 
+    @Test
+    public void setRoleSetsCorrectRole() throws Exception {
+        Users  testUsers = setupUsers();
+        testUsers.setRole("Financial operations") ;
+        assertNotEquals("repair",testUsers.getRole());
+    }
+
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
