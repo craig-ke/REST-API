@@ -59,6 +59,13 @@ public class UsersTest {
         assertNotEquals("Faith",testUsers.getName());
     }
 
+    @Test
+    public void setPositionSetsCorrectPosition() throws Exception {
+        Users  testUsers = setupUsers();
+        testUsers.setPosition("Accountant") ;
+        assertNotEquals("IT Technician",testUsers.getPosition());
+    }
+
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
