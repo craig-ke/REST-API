@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class UsersTest {
     @Before
@@ -49,6 +50,13 @@ public class UsersTest {
     public void getDepartmentReturnsCorrectDepartment() throws Exception {
         Users testUsers = setupUsers();
         assertEquals("IT", testUsers.getDepartment());
+    }
+
+    @Test
+    public void setNameSetsCorrectName() throws Exception {
+        Users  testUsers = setupUsers();
+        testUsers.setName("Rose");
+        assertNotEquals("Faith",testUsers.getName());
     }
 
     public Users  setupUsers (){
