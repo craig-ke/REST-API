@@ -35,8 +35,20 @@ public class NewsTest {
         testNews.setGeneral("water") ;
         assertNotEquals("Economy", testNews.getGeneral());
     }
-
-
+    //4th test
+    @Test
+    public void setDepartments() {
+        News testNews = setupNews();
+        testNews.setDepartment("Sewage"); ;
+        assertNotEquals("Rainfall", testNews.getDepartment());
+    }
+    //5th Test
+    @Test
+    public void setId() {
+        News testNews = setupNews();
+        testNews.setId(5);
+        assertEquals(5, testNews.getId());
+    }
 
     // helper
     public News  setupNews(){
