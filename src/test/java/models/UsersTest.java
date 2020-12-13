@@ -33,6 +33,12 @@ public class UsersTest {
         assertEquals("repair", testUsers.getRole());
     }
 
+    @Test
+    public void getEmailReturnsCorrectEmail() throws Exception {
+        Users testUsers = setupUsers();
+        assertEquals("rmogusu123@gmail.com", testUsers.getEmail());
+    }
+
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
