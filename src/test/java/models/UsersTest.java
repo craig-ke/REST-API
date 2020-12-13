@@ -45,7 +45,11 @@ public class UsersTest {
         assertEquals(2345, testUsers.getBadgeNo());
     }
 
-
+    @Test
+    public void getDepartmentReturnsCorrectDepartment() throws Exception {
+        Users testUsers = setupUsers();
+        assertEquals("IT", testUsers.getDepartment());
+    }
 
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
