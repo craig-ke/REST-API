@@ -18,10 +18,16 @@ public class UsersTest {
     @Test
     public void getNameReturnsCorrectName() throws Exception {
         Users  testUsers = setupUsers();
-        assertEquals("Faith", testUsers.getName());
+        assertEquals("Craig", testUsers.getName());
+    }
+
+    @Test
+    public void getPositionReturnsCorrectPosition() throws Exception {
+        Users testUsers = setupUsers();
+        assertEquals("IT Technician", testUsers.getPosition());
     }
 
     public Users  setupUsers (){
-        return new Users("Faith", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
+        return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
 }
