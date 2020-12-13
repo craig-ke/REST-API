@@ -8,10 +8,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class UsersTest {
+    //setup
     @Before
     public void  setUp() throws Exception{
     }
-
+   //Teardown
     @After
     public void teardown() throws Exception{
     }
@@ -106,7 +107,7 @@ public void setId() {
     testUsers.setId(5);
     assertEquals(5, testUsers .getId());
 }
-//pairs with first test
+//pairs with first test(Helper)
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
