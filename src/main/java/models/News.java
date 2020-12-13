@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class News {
     private String general;
     private String department;
@@ -9,7 +11,7 @@ public class News {
         this.general = general;
         this.department = department;
     }
-
+//getters
     public String getGeneral() {
         return general;
     }
@@ -21,7 +23,7 @@ public class News {
     public int getId() {
         return id;
     }
-
+//setters
     public void setGeneral(String general) {
         this.general = general;
     }
@@ -32,5 +34,9 @@ public class News {
 
     public void setId(int id) {
         this.id = id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(general  , department , id);
     }
 }

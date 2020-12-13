@@ -21,7 +21,7 @@ public class Users {
         this.email = email;
         this.departmentId =departmentId;
     }
-
+  //Getters
     public String getName() {
         return name;
     }
@@ -57,7 +57,7 @@ public class Users {
     public void setName(String name) {
         this.name = name;
     }
-
+//Setters
     public void setPosition(String position) {
         this.position = position;
     }
