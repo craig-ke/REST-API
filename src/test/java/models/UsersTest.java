@@ -39,6 +39,14 @@ public class UsersTest {
         assertEquals("rmogusu123@gmail.com", testUsers.getEmail());
     }
 
+    @Test
+    public void getBadgeNoReturnsCorrectBadgeNo() throws Exception {
+        Users testUsers = setupUsers();
+        assertEquals(2345, testUsers.getBadgeNo());
+    }
+
+
+
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
