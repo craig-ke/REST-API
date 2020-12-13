@@ -27,6 +27,12 @@ public class UsersTest {
         assertEquals("IT Technician", testUsers.getPosition());
     }
 
+    @Test
+    public void getRoleReturnsCorrectRole() throws Exception {
+        Users testUsers = setupUsers();
+        assertEquals("repair", testUsers.getRole());
+    }
+
     public Users  setupUsers (){
         return new Users("Craig", "IT Technician", "repair", "rmogusu123@gmail.com",2345,"IT",1) ;
     }
