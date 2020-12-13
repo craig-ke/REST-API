@@ -42,6 +42,12 @@ public class DepartmentsTests {
         assertNotEquals("IT",testDepartments.getName() );
     }
     //5th test
+    @Test
+    public void setDescriptionSetsCorrectDescription() throws Exception {
+        Departments  testDepartments = setupDepartments();
+        testDepartments.setDescription("Financial operations") ;
+        assertNotEquals("Technician support",testDepartments.getDescription());
+    }
     //6th test
     public Departments  setupDepartments (){
         return new Departments("IT", "Technician support", 250) ;
