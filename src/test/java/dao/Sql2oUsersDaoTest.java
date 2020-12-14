@@ -1,5 +1,6 @@
 package dao;
 
+import models.Departments;
 import models.Users;
 import org.junit.After;
 import org.junit.Before;
@@ -27,5 +28,23 @@ public class Sql2oUsersDaoTest {
         Users Users = setupUsers();
         Users  Users2 = setupUsers();
         assertEquals(2, usersDao.getAll().size());
+    }
+    //helpers
+    public Users  setupUsers() {
+        Users users = new Users("Rose", "Senior", "Maintenance", "rmogusu123@gmail.com",234,"IT",1) ;
+        usersDao.add(users);
+        return users ;
+    }
+
+    public Users setupUsersForDepartments(Departments departments) {
+        Users  users = new Users("Rose", "Senior","Maintenance", "rmogusu123@gmail.com",234,"IT", departments .getId()) ;
+        usersDao.add(users);
+        return users;
+    }
+
+    public Departments  setupDepartments() {
+        Departments  departments = new Departments("IT", "Programming", 500) ;
+        departmentsDao.add(departments);
+        return departments;
     }
 }
