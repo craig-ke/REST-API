@@ -1,9 +1,12 @@
 package dao;
 
+import models.News;
 import models.Users;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
+
+import java.util.List;
 
 public class Sql2oNewsDao {
     private final Sql2o sql2o;
@@ -25,4 +28,12 @@ public class Sql2oNewsDao {
             System.out.println(ex);
         }
     }
+    @Override
+    public List<News> getAll() {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM news")
+                    .executeAndFetch(News.class);
+        }
+    }
+
 }
