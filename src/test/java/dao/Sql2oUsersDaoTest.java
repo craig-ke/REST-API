@@ -29,6 +29,10 @@ public class Sql2oUsersDaoTest {
         Users  Users2 = setupUsers();
         assertEquals(2, usersDao.getAll().size());
     }
+    //Test 1
+    //Test 2
+    //Test 3
+    //Test 4
     //helpers
     public Users  setupUsers() {
         Users users = new Users("Rose", "Senior", "Maintenance", "rmogusu123@gmail.com",234,"IT",1) ;

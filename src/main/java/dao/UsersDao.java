@@ -4,7 +4,7 @@ import models.Users;
 
 import java.util.List;
 
-public class UsersDao {
+public interface UsersDao {
     //create
     void add(Users users);
 
