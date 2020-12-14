@@ -5,6 +5,8 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.List;
+
 public class Sql2oDepartmentDao implements DepartmentsDao  {
     private final Sql2o sql2o;
     public Sql2oDepartmentsDao(Sql2o sql2o) {
@@ -12,7 +14,7 @@ public class Sql2oDepartmentDao implements DepartmentsDao  {
     }
 
     @Override
-    public boolean equals(Departments departments {
+    public boolean equals(Departments departments ){
         String sql = "INSERT INTO departments (name, description, totalNumber) VALUES (:name, :description, :totalNumber)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
@@ -24,5 +26,21 @@ public class Sql2oDepartmentDao implements DepartmentsDao  {
             System.out.println(ex);
         }
     }
+    @Override
+    public List<Departments> getAll() {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM departments")
+                    .executeAndFetch(Departments.class);
+        }
+    }
+    @Override
+    public Departments  findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM departments WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Departments.class);
+        }
+    }
+
 }
 
