@@ -1,5 +1,6 @@
 package dao;
 
+import models.Departments;
 import models.News;
 import models.Users;
 import org.sql2o.Connection;
@@ -59,4 +60,17 @@ public class Sql2oNewsDao {
             System.out.println(ex);
         }
     }
+    @Override
+    public void addNewsToDepartments(News  news, Departments departments ){
+        String sql = "INSERT INTO departments_news (departmentId, newsId) VALUES (:departmentId, :newsId)";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("departmentId", departments.getId())
+                    .addParameter("newsId", news.getId())
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
 }
