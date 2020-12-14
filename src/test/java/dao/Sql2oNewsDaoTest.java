@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oNewsDaoTest {
@@ -36,6 +37,55 @@ public class Sql2oNewsDaoTest {
         int originalNewsId = testNews.getId();
         newsDao.add(testNews);
         assertNotEquals(originalNewsId,testNews.getId());
+    }
+    //2nd test
+    @Test
+    public void addedNewsAreReturnedFromGetAll() throws Exception {
+        News testNews = setupNews();
+        newsDao.add(testNews);
+        assertEquals(1, newsDao.getAll().size());
+    }
+    //3rd Test
+    @Test
+    public void noNewsReturnsEmptyList() throws Exception {
+        assertEquals(0, newsDao.getAll().size());
+    }
+    //4th test
+    @Test
+    public void deleteByIdDeletesCorrectNews() throws Exception {
+        News news = setupNews();
+        newsDao.add(news);
+        newsDao.deleteById(news.getId());
+        assertEquals(0, newsDao.getAll().size());
+    }
+    //5th test
+    @Test
+    public void clearAll() throws Exception {
+        News testNews = setupNews();
+        News otherNews = setupNews();
+        newsDao.clearAll();
+        assertEquals(0, newsDao.getAll().size());
+    }
+    //6th tets
+    @Test
+    public void addNewsToDepartmentAddsTypeCorrectly() throws Exception {
+        Departments  testDepartments = setupDepartments();
+        departmentsDao.add(testDepartments);
+        News testNews = setupNews();
+        newsDao.add(testNews);
+        newsDao.addNewsToDepartments(testNews, testDepartments ) ;
+        assertEquals(1, newsDao.getAllDepartmentsByNews(testNews.getId()).size());
+    }
+    //7th test
+    @Test
+    public void deletingDepartmentAlsoUpdatesJoinTable() throws Exception {
+        News testNews = setupNews();
+        newsDao.add(testNews);
+        Departments  testDepartments = setupDepartments();
+        departmentsDao.add(testDepartments);
+        departmentsDao.addDepartmentsToNews(testDepartments ,testNews);
+        departmentsDao.deleteById(testDepartments.getId());
+        assertEquals(0, departmentsDao.getAllNewsByDepartments(testDepartments.getId()) .size());
     }
     //Helpers
     public News setupNews(){
