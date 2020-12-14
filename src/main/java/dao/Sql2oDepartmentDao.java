@@ -41,6 +41,19 @@ public class Sql2oDepartmentDao implements DepartmentsDao  {
                     .executeAndFetchFirst(Departments.class);
         }
     }
-
+    @Override
+    public void update(int id, String newName, String newDescription, int newTotalNumber) {
+        String sql = "UPDATE departments SET (name,description, totalNumber) = (:name, :description, :totalNumber) WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("name", newName)
+                    .addParameter("description", newDescription)
+                    .addParameter("totalNumber", newTotalNumber)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }
 
