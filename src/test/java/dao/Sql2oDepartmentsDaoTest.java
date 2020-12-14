@@ -85,19 +85,19 @@ public class Sql2oDepartmentsDaoTest {
         assertEquals(0, departmentsDao.getAll().size());
     }
     //8th test
-    @Test
-    public void DepartmentsReturnsNewsCorrectly() throws Exception {
-        News testNews = setupNews();
-        newsDao.add(testNews);
-        News otherNews = setupNews();
-        newsDao.add(otherNews);
-        Departments  testDepartments = setupDepartments();
-        departmentsDao.add(testDepartments);
-        departmentsDao.addDepartmentsToNews(testDepartments ,testNews);
-        departmentsDao.addDepartmentsToNews(testDepartments ,otherNews);
-        News [] news = {testNews , otherNews};
-        assertEquals(Arrays.asList(news), departmentsDao.getAllNewsByDepartments(testDepartments.getId()) );
-    }
+//    @Test
+//    public void DepartmentsReturnsNewsCorrectly() throws Exception {
+//        News testNews = setupNews();
+//        newsDao.add(testNews);
+//        News otherNews = setupNews();
+//        newsDao.add(otherNews);
+//        Departments  testDepartments = setupDepartments();
+//        departmentsDao.add(testDepartments);
+//        departmentsDao.addDepartmentsToNews(testDepartments ,testNews);
+//        departmentsDao.addDepartmentsToNews(testDepartments ,otherNews);
+//        News [] news = {testNews , otherNews};
+//        assertEquals(Arrays.asList(news), departmentsDao.getAllNewsByDepartments(testDepartments.getId()) );
+//    }
      //9th test
     @Test
     public void deletingNewsAlsoUpdatesJoinTable() throws Exception {
