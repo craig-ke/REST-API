@@ -55,6 +55,7 @@ public class DepartmentsTests {
         testDepartments.setTotalNumber(500) ;
         assertNotEquals(250,testDepartments.getTotalNumber());
     }
+    //helper
     public Departments  setupDepartments (){
         return new Departments("IT", "Technician support", 250) ;
     }
