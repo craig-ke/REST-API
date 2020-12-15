@@ -17,7 +17,7 @@ public class Sql2oUsersDaoTest {
     //Setup method
     @Before
     public void setUp() throws Exception {
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/database.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "rose", "wambua");
         usersDao = new Sql2oUsersDao(sql2o);
         departmentsDao = new Sql2oDepartmentsDao(sql2o);

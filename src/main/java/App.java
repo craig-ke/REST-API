@@ -13,7 +13,6 @@ public class App {
     public static void main(String[] args) {
         Sql2oDepartmentsDao departmentDao;
         Sql2oNewsDao newsDao;
-        Sql2oNewsDao departmentNewsDao;
         Sql2oUsersDao userDao;
         Connection conn;
         Gson gson = new Gson();
@@ -24,7 +23,6 @@ public class App {
         departmentDao = new  Sql2oDepartmentsDao (sql2o);
         userDao = new Sql2oUsersDao(sql2o);
         newsDao = new Sql2oNewsDao(sql2o);
-        departmentNewsDao = new Sql2oNewsDao(sql2o);
         conn = sql2o.open();
 
         post("/departments/new", "application/json", (req, res) -> {
